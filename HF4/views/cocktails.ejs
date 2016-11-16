@@ -1,0 +1,28 @@
+<%- include('header', {title : 'Cocktails'}) %>
+
+    <body>
+        <div style="padding: 40px 0px 0px 0px">
+            <ul class="nav nav-tabs">
+                <li class="active"><a  href="/cocktails">Cocktails</a></li>
+                <li><a href="/ingredients">Ingredients</a></li>
+            </ul>
+
+            <div class="tab-content" style="padding: 20px">
+                <div id="cocktailList" class="tab-pane fade-in fade in active">
+                    <div class="list-group">
+                        <% cocktails.forEach(function (cocktail) { %>
+                            <a href="cocktail/<%= cocktail.id %>" class="list-group-item" style="height:120px">
+                                <img src="/imgs/<%= cocktail.img %>" alt="<%= cocktail.name %>" width=100 style="float:left"/>
+                                <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;"><%= cocktail.name %></h4>
+                            </a>
+                        <% }) %>
+
+                        <a href="/cocktail/<%= nextCocktailId %>/new" class="list-group-item" style="height:120px">
+                            <img src="/imgs/plus.png" alt="plus" width=100 style="float:left"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<html lang="en">
+    <head >
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
+        
+        <script>
+            function getQueryVar(variable) 
+            {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    if(pair[0] == variable){
+                        return pair[1];
+                    }
+                    //document.write(pair[0] + " = " + pair[1]);
+                }
+                return(false);
+            }
+            
+            function init()
+            {
+                var img = getQueryVar('img');
+                document.getElementById('cocktailImg').src="imgs/"+img;
+                
+                var name = getQueryVar('name');
+                document.getElementById('header2').innerHTML = name;
+                document.getElementById('header4').innerHTML = name;
+            }
+        </script>
+    </head>
+    <body onload="init();">
+        <p id="header2" style="align: justify; font-size: 30px; padding: 40px 0px 0px 20px; color:white; background-color:#378bc1">Cocktail Name</p>
+        
+        <div style="padding: 10px 20px 20px 20px">
+            <img id="cocktailImg" alt="cocktail" width="100px" height="100px" style="float:left"/>
+            <h4 id="header4" class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Cocktail Name</h4>
+        </div>
+        
+        <div style="padding: 20px; float: none; clear:both">
+            <h4>Description</h4>
+            <p style="margin: 0% 20% 0% 0%; align: left">
+                Pellentesque ornare pulvinar scelerisque. In dapibus lobortis metus, id tempus ligula faucibus eget. Vestibulum nibh augue, egestas non massa et, pharetra condimentum ante. Curabitur egestas enim nec massa congue, vel sollicitudin augue consequat. Nunc vulputate in felis et facilisis. Nulla risus velit, efficitur in ipsum sed, accumsan fermentum diam. Suspendisse varius vitae ligula nec sodales. Suspendisse potenti. Aenean sit amet placerat augue, vitae imperdiet neque. Fusce consectetur, dolor vel accumsan dapibus, nunc leo egestas leo, vestibulum elementum nunc nisl eget eros.
+            </p>
+        </div>
+        
+        <div style="padding: 20px;">
+            <h4>Recipe</h4>
+            <p style="margin: 0% 20% 0% 0%; align: left">
+                Pellentesque ornare pulvinar scelerisque. In dapibus lobortis metus, id tempus ligula faucibus eget. Vestibulum nibh augue, egestas non massa et, pharetra condimentum ante. Curabitur egestas enim nec massa congue, vel sollicitudin augue consequat. Nunc vulputate in felis et facilisis. Nulla risus velit, efficitur in ipsum sed, accumsan fermentum diam. Suspendisse varius vitae ligula nec sodales. Suspendisse potenti. Aenean sit amet placerat augue, vitae imperdiet neque. Fusce consectetur, dolor vel accumsan dapibus, nunc leo egestas leo, vestibulum elementum nunc nisl eget eros.
+            </p>
+        </div>
+        
+        <div style="padding: 20px; float:none">
+            <h4>Ingredients</h4>
+            <div class="list-group">
+                <a href="ingredient.html?name=Jack_Daniels&img=jack-daniels.jpg" class="list-group-item" style="height:120px">
+                    <img src="imgs/jack-daniels.jpg" alt="manhattan" width=100 style="float:left"/>
+                    <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Jack Daniels</h4>
+                </a>
+                <a href="ingredient.html?name=Martini_Rosso&img=martini-rosso.jpg" class="list-group-item" style="height:120px">
+                    <img src="imgs/martini-rosso.jpg" alt="martini" width=100 style="float:left"/>
+                    <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Martini Rosso</h4>
+                </a>
+                <a href="ingredient.html?name=Angostura_bitters&img=angostura-bitter.jpg" class="list-group-item" style="height:120px">
+                    <img src="imgs/angostura-bitter.jpg" alt="old-fashioned" width=100 style="float:left"/>
+                    <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Angostura Bitters</h4>
+                </a>
+            </div>
+        </div>
+
+        <div class="btn-group btn-group-justified" role="group" style="padding: 0px 20px 20px 20px">
+            <div class="btn-group" role="group">
+                <button class="btn btn-info" OnClick="location.href='editCocktail.html?name=Manhattan&img=manhattan.jpg' ">Edit</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button class="btn btn-info" OnClick="location.href='index.html' ">Back</button>
+            </div>
+        </div>
+    </body>
+</html>

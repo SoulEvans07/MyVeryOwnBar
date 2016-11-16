@@ -1,0 +1,14 @@
+{
+  "name": "hf2",
+  "version": "1.0.0",
+  "description": "server side javascript homework 2",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Szi Ádám (XK5IV8)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

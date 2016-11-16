@@ -1,0 +1,71 @@
+<html lang="en">
+    <head >
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
+    </head>
+    <body>
+        
+        <div style="padding: 40px 0px 0px 0px">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab"  href="#cocktails">Cocktails</a></li>
+                <li><a data-toggle="tab" href="#ingredients">Ingredients</a></li>
+            </ul>
+
+            <div class="tab-content" style="padding: 20px">
+                <div id="cocktails" class="tab-pane fade in active">
+                    <div class="list-group">
+                        <a href="cocktail.html?name=Manhattan&img=manhattan.jpg" class="list-group-item" style="height:120px">
+                            <img src="imgs/manhattan.jpg" alt="manhattan" width=100 style="float:left"/>
+                            <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Manhattan</h4>
+                        </a>
+                        <a href="cocktail.html?name=Martini&img=martini.jpg" class="list-group-item" style="height:120px">
+                            <img src="imgs/martini.jpg" alt="martini" width=100 style="float:left"/>
+                            <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Martini</h4>
+                        </a>
+                        <a class="list-group-item disabled" style="height:120px">
+                            <img src="imgs/old-fashioned.jpg" alt="old-fashioned" width=100 style="float:left"/>
+                            <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Old Fashioned</h4>
+                        </a>
+                        <a href="newCocktail.html?test=yes" class="list-group-item" style="height:120px">
+                            <img src="imgs/plus.png" alt="plus" width=100 style="float:left"/>
+                        </a>
+                    </div>
+                </div>
+                <div id="ingredients" class="tab-pane fade">
+                    <div class="list-group">
+                        <a href="ingredient.html?name=Jack_Daniels&img=jack-daniels.jpg" class="list-group-item" style="height:120px">
+                            <img src="imgs/jack-daniels.jpg" alt="manhattan" width=100 style="float:left"/>
+                            <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Jack Daniels</h4>
+                            <input type="checkbox" name="jack" checked style=" padding: 50px 50px 50px 50px; float:right;"/>
+                        </a>
+                        <a href="ingredient.html?name=Martini_Rosso&img=martini-rosso.jpg" class="list-group-item" style="height:120px">
+                            <img src="imgs/martini-rosso.jpg" alt="martini" width=100 style="float:left"/>
+                            <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Martini Rosso</h4>
+                            <input type="checkbox" name="rosso" checked style=" padding: 50px 50px 50px 50px; float:right;"/>
+                        </a>
+                        <a href="ingredient.html?name=Angostura_Bitters&img=angostura-bitter.jpg" class="list-group-item" style="height:120px">
+                            <img src="imgs/angostura-bitter.jpg" alt="old-fashioned" width=100 style="float:left"/>
+                            <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Angostura Bitters</h4>
+                            <input type="checkbox" name="bitters" checked style=" padding: 50px 50px 50px 50px; float:right;"/>
+                        </a>
+                        <a href="ingredient.html?name=Amaretto&img=amaretto.jpg" class="list-group-item" style="height:120px">
+                            <img src="imgs/amaretto.jpg" alt="old-fashioned" width=100 style="float:left"/>
+                            <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;">Amaretto</h4>
+                            <input type="checkbox" name="amaretto" style=" padding: 50px 50px 50px 50px; float:right;"/>
+                        </a>
+                        <a href="newIngredient.html" class="list-group-item" style="height:120px">
+                            <img src="imgs/plus.png" alt="plus" width=100 style="float:left"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
