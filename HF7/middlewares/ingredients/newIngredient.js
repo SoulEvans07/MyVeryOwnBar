@@ -16,7 +16,7 @@ module.exports = function (objectrepository) {
 
         res.tpl.ingredient = new ingredientModel({
             name : "new Ingredient",
-            img : "ingredient.jpeg",
+            img : "/imgs/ingredient.jpeg",
             descr : "random descrisdmafa",
             have : false
         });
