@@ -17,18 +17,23 @@ module.exports = function (objectrepository, edit) {
     return function (req, res, next) {
         var id;
         // * validate id in url
-        if(req.params.ingredientid.length == 24)
+        try {
             id = new mongoose.Types.ObjectId( req.params.ingredientid );
-        else {
-            res.tpl.error.push("invalid ingredient id: " + req.params.ingredientid);
+        } catch (e){
+            res.tpl.error.push('invalid ingredient id: ' + req.params.ingredientid);
+            res.tpl.error.push('(' + e.message + ')');
             return next();
         }
 
         // * query ingredient by id
         ingredientModel.findOne({ _id: id }, function (err, ingredient) {
-            if ((err) || (!ingredient)) {
+            // * check for errors or empty result
+            if (err) {
+                res.tpl.error.push(JSON.stringify(err));
+                return next();
+            }
+            if (!ingredient) {
                 res.tpl.error.push("no ingredient on id: " + JSON.stringify(id));
-                console.log("no ingredient on id: " + JSON.stringify(id));
                 return next();
             }
 

@@ -13,29 +13,27 @@ var mongoose = require('mongoose');
 module.exports = function (objectrepository, edit) {
 
     var cocktailModel = requireOption(objectrepository, 'cocktailModel');
-    var ingredientModel = requireOption(objectrepository, 'ingredientModel');
 
     return function (req, res, next) {
         var id;
         // * validate id in url
-        if(req.params.cocktailid.length == 24)
-            id = new mongoose.Types.ObjectId( req.params.cocktailid );
-        else {
-            res.tpl.error.push("invalid cocktail id: " + req.params.cocktailid);
+        try {
+            id = new mongoose.Types.ObjectId(req.params.cocktailid);
+        } catch (e){
+            res.tpl.error.push('invalid cocktail id: ' + req.params.cocktailid);
+            res.tpl.error.push('(' + e.message + ')');
             return next();
         }
 
         // * query cocktail by id, populate ingredient list
         cocktailModel.findOne({ _id: id }).populate('ingrs').exec(function (err, cocktail) {
             // * check for errors or empty result
-            if ((err) || (!cocktail)) {
-                if(typeof err !== 'undefined') {
-                    res.tpl.error.push("no cocktail on id: " + JSON.stringify(id));
-                    res.tpl.error.push(JSON.stringify(err));
-                } else {
-                    console.log("no cocktail on id: " + JSON.stringify(id));
-                }
-
+            if (err) {
+                res.tpl.error.push(JSON.stringify(err));
+                return next();
+            }
+            if (!cocktail) {
+                res.tpl.error.push('no cocktail on id: ' + JSON.stringify(id));
                 return next();
             }
 

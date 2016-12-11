@@ -53,9 +53,13 @@ app.use(function (err, req, res, next) {
     res.tpl.error.forEach(function (error) {
         console.error("[OWN] " + error);
     });
-    console.error("[---------------------Stack---------------------]");
-    console.error(err.stack);
-    console.error("[-----------------------------------------------]");
+
+    if(typeof err !== 'undefined' && err != null) {
+        //console.error('[ERROR] ' + err.message);
+        console.error("[---------------------Stack---------------------]");
+        console.error(err.stack);
+        console.error("[-----------------------------------------------]");
+    }
 });
 
 

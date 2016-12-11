@@ -4,12 +4,14 @@ var expect = require('chai').expect;
 
 var getIngredientListMW = require('../middlewares/ingredients/getIngredientList');
 
-mocha.describe('#getCocktailList middleware ', function () {
+mocha.describe('#getIngredientList middleware', function () {
 
     mocha.it('should return ingredients in ascending order by name', function (done) {
         var req = {};
         var res = {
-            tpl: {}
+            tpl: {
+                error: []
+            }
         };
 
         var mongoList = [
