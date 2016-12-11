@@ -1,0 +1,24 @@
+{
+  "name": "myveryownbar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "html-entities": "^1.2.0",
+    "mocha": "^3.2.0",
+    "mongoose": "^4.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "soul evans",
+  "license": "ISC"
+}

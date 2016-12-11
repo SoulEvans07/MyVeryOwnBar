@@ -1,0 +1,53 @@
+<%- include('header', {title : title}) %>
+
+    <body>
+        <p id="header2" style="align: justify; font-size: 30px; padding: 40px 0px 0px 20px; color:white; background-color:#378bc1"><%= cocktail.name %></p>
+        
+        <div style="padding: 10px 20px 20px 20px">
+            <img src="<%= cocktail.img %>" alt="<%= cocktail.name %>" width="100px" height="100px" style="float:left"/>
+            <h4 id="header4" class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;"><%= cocktail.name %></h4>
+        </div>
+        
+        <div style="padding: 20px; float: none; clear:both">
+            <h4>Description</h4>
+            <p style="margin: 0% 20% 0% 0%; align: left"><%- cocktail.descr %></p>
+        </div>
+        
+        <div style="padding: 20px;">
+            <h4>Recipe</h4>
+            <p style="margin: 0% 20% 0% 0%; align: left"><%- cocktail.recipe %></p>
+        </div>
+        
+        <div style="padding: 20px; float:none">
+            <h4>Ingredients</h4>
+            <div class="list-group">
+                <%  cocktail.ingrs.forEach(function (ingr) { %>
+                    <a href="/ingredient/<%= ingr._id %>" class="list-group-item" style="height:120px">
+                        <img src="<%= ingr.img %>" alt="<%= ingr.name %>" width="100px" height="100px" style="float:left"/>
+                        <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;"><%= ingr.name %></h4>
+                    </a>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class="btn-group btn-group-justified" role="group" style="padding: 0px 20px 20px 20px">
+            <div class="btn-group" role="group">
+                <button class="btn btn-info" OnClick="location.href='/cocktail/<%= cocktail._id %>/edit'">Edit</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="del" class="btn btn-danger" OnClick="removeCocktail()">Delete</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button class="btn btn-warning" OnClick="location.href='/cocktails'">Back</button>
+            </div>
+        </div>
+
+        <script>
+            function removeCocktail(){
+                if (confirm('Do you want to remove <%= cocktail.name %>. This action can not be undone.')) {
+                    location.href='/cocktail/<%= cocktail._id %>/delete'
+                }
+            };
+        </script>
+    </body>
+</html>

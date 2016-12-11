@@ -1,0 +1,61 @@
+<%- include('header', {title : title}) %>
+
+    <body>
+        <p id="header2" style="align: justify; font-size: 30px; padding: 40px 0px 0px 20px; color:white; background-color:#378bc1"><%= cocktail.name %></p>
+
+        <div style="padding: 10px 20px 20px 20px">
+            <img src="<%= cocktail.img %>" alt="<%= cocktail.name %>" width="100px" height="100px" style="float:left"/>
+            <div style="padding: 25px 0px 0px 10px; float:left;">
+                <textarea placeholder="Name" form="save" name="name" id="header4" rows="1" cols="50" style="display: block; font-size: 20px; resize:none"><%= cocktail.name %></textarea>
+                <textarea placeholder="Image URL" form="save" name="imgurl" rows="1" cols="50" style="display: block;font-size: 20px; resize:none"><%= cocktail.img %></textarea>
+            </div>
+
+        </div>
+
+        <div style="padding: 20px; float: none; clear:both">
+            <h4>Description</h4>
+            <textarea form="save" name="description" rows="5" cols="100" style="margin: 0% 20% 0% 0%; align: left; resize: none;"><%- cocktail.descr %></textarea>
+        </div>
+
+        <div style="padding: 20px;">
+            <h4>Recipe</h4>
+            <textarea form="save" name="recipe" rows="5" cols="100" style="margin: 0% 20% 0% 0%; align: left; resize: none;"><%- cocktail.recipe %></textarea>
+        </div>
+
+
+        <div style="padding: 20px; float:none">
+            <h4>Ingredients</h4>
+            <div class="list-group">
+                <% ingredients.forEach(function (ingr) { %>
+                    <a class="list-group-item" style="height:120px">
+                        <img src="<%= ingr.img %>" alt="<%= ingr.name %>" width="100px" height="100px" style="float:left"/>
+                        <h4 class="list-group-item-heading" style="float:left; padding: 40px 0px 0px 10px;"><%= ingr.name %></h4>
+                        <input form="save" name="ingredients[]" value="<%= ingr._id %>" type="checkbox"
+                                <% var found = false; %>
+                                <% cocktail.ingrs.forEach(function (ing) {
+                                    if (ing._id.toString() == ingr._id) {
+                                        found = true;
+                                        return;
+                                    }
+                                }); %>
+                                <%= found ? 'checked' : null %>
+                                style=" padding: 50px 50px 50px 50px; float:right;"/>
+                    </a>
+                <% }) %>
+            </div>
+        </div>
+
+        <form id="save" method="post">
+            <input type="hidden" name="cocktailid" value="<%= cocktail._id %>">
+            <div class="btn-group btn-group-justified" role="group" style="padding: 0px 20px 20px 20px">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-info">Save</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-info" OnClick="window.history.back()">Cancel</button>
+                </div>
+            </div>
+        </form>
+
+    </body>
+</html>
